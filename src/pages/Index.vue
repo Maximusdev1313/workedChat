@@ -92,13 +92,13 @@
                 {{tweet.massage}}
               </q-item-label>
               <div class="row justify-between">
-                <q-btn
+                <!-- <q-btn
                 color="grey"
                 icon="far fa-comment"
                 size="sm"
                 flat
                 round
-                ></q-btn>
+                ></q-btn> -->
                 <!-- <q-btn
                 color="grey"
                 icon="fas fa-retweet"
