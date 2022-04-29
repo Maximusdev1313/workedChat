@@ -169,7 +169,7 @@ export default defineComponent({
 
       const channel = pusher.subscribe('TweetMax-development');
       channel.bind('massage', data => {
-        tweets.value.push(data);
+        tweets.value.unshift(data);
     });
 
     })
@@ -189,7 +189,7 @@ export default defineComponent({
       try {
         const res = await axios.get('http://maximusdev.pythonanywhere.com/api/')
         tweets.value = res.data
-        
+        tweets.value.reverse()
              }
       catch(err){
         console.log(err);
