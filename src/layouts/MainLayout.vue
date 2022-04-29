@@ -30,7 +30,6 @@
     </q-header>
 <!-- this is left drawer -->
     <q-drawer
-      show-if-above
       v-model="leftDrawerOpen"
       side="left"
       bordered

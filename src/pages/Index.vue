@@ -1,10 +1,75 @@
 <template>
   <q-page class="relative-position">
+    <div class="row items-end q-col-glutter-md">
+        <div class="col">
+           <div class="row items-end q-col-glutter-md inputs " >
+         <div class="col">
+          <q-input
+          bottom-slots
+          v-model="name"
+          label="Ismingiz"
+          counter
+          maxlength="280"
+          class="inputForTweet q-pr-md q-pl-sm newTweet"
+          autogrow
+
+          >
+
+          <template v-slot:before>
+            <q-avatar size="md">
+              <q-icon name="person" size="md"/>
+            </q-avatar>
+          </template>
+
+          <template v-slot:append>
+            <!-- <q-icon v-if="newTweet !== ''" name="close" @click="newTweet = ''" class="cursor-pointer" /> -->
+
+          </template>
+
+        </q-input>
+         <q-input
+          bottom-slots
+          v-model="massage"
+          label="Savol bering"
+          counter
+          maxlength="280"
+          class="inputForTweet q-pr-md q-pl-xl newTweet "
+          autogrow
+          v-if="name.length >= 3"
+          >
+           <template v-slot:append>
+            <q-icon v-if="massage !== ''" name="close" @click="massage = ''" class="cursor-pointer" />
+
+          </template>
+          </q-input> 
+        </div>
+        <div class="col col-shrink">
+
+             <q-btn
+              @click="addTweet"
+              :disable="!addTweet"
+              color="primary"
+              class="q-mb-md q-mr-md"
+              label="Yuborish"
+              rounded
+              unelevated
+              no-caps
+              /> 
+
+        </div>
+      </div>
+      <q-separator
+      size="10px"
+      color="grey-2"
+      class="devider"
+      />
+        </div>
+      </div>
     <q-scroll-area class="absolute full-height full-width">
-      
+       
       
       <!-- tweet lists -->
-        <q-list>
+        <q-list class="relative">
           <q-item class="q-mt-md" v-for="tweet in tweets" :key="tweet.id">
            <q-item-section avatar top>
               <q-avatar>
@@ -71,67 +136,10 @@
 
 
       </q-list>
-      <q-btn color="accent" @click="toggleQuestionPanel" v-if="!openQuestionPanel" class="relative-position">
-        Savol berish
-      </q-btn>
-      <div class="row items-end q-col-glutter-md inputs " v-if="openQuestionPanel">
-        <div class="col">
-          <q-input
-          bottom-slots
-          v-model="name"
-          label="Ismingiz"
-          counter
-          maxlength="280"
-          class="inputForTweet q-py-md q-px-sm newTweet"
-          autogrow
-
-          >
-
-          <template v-slot:before>
-            <q-avatar size="md">
-              <q-icon name="person" size="md"/>
-            </q-avatar>
-          </template>
-
-          <template v-slot:append>
-            <!-- <q-icon v-if="newTweet !== ''" name="close" @click="newTweet = ''" class="cursor-pointer" /> -->
-
-          </template>
-
-        </q-input>
-         <q-input
-          bottom-slots
-          v-model="massage"
-          label="Savol bering"
-          counter
-          maxlength="280"
-          class="inputForTweet q-py-lg q-px-md newTweet"
-          autogrow
-          v-if="name.length >= 3"
-          >
-           <template v-slot:append>
-            <q-icon v-if="massage !== ''" name="close" @click="massage = ''" class="cursor-pointer" />
-
-          </template>
-          </q-input> 
-        </div>
-        <div class="col col-shrink">
-
-             <q-btn
-              @click="addTweet"
-              :disable="!addTweet"
-              color="primary"
-              class="q-mb-md q-mr-md"
-              label="Yuborish"
-              rounded
-              unelevated
-              no-caps
-              /> 
-
-        </div>
-      </div>
+      
+    
     </q-scroll-area>
-  
+   
 
   </q-page>
 </template>
