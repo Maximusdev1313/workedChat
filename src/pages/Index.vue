@@ -79,24 +79,29 @@
 
             <q-item-section>
               <q-item-label class="text-weigth-bold text-subtitle1">
-                <span class="text-grey">
+                <span class="text-grey row">
                   @{{tweet.name}}
-                  
-                  <br class="lt-md">
-                  <span class="text-subtitle2">
-                      <!-- {{ moment(date).format(" MMM DD, YYYY [at] HH:mm a") }} -->
+                  <q-space></q-space>
+                  <!-- <br class="lt-md"> -->
+                  <span class="text-overline ">
+                      {{momentDate}}
                   </span>
                 </span>
                 </q-item-label>
               <q-item-label class="inputForTweet">
                 {{tweet.massage}}
-              </q-item-label>
+              </q-item-label>                                 
+              <q-separator
+                size="2px"
+                color="grey-2"
+                class="q-mt-md"
+                />
               <div class="row justify-between">
                 <!-- <q-btn
                 color="grey"
                 icon="far fa-comment"
                 size="sm"
-                flat
+                flat4
                 round
                 ></q-btn> -->
                 <!-- <q-btn
@@ -131,7 +136,6 @@
             </q-item-section>
           </q-item>
 
-        <q-separator inset="item" />
 
 
 
@@ -158,7 +162,9 @@ export default defineComponent({
     const name  = ref('')
     const massage = ref('')
     const tweets = ref([])
-
+    const date = ref(Date.now())
+    // const moment = ref('')
+    const momentDate = ref('')
    
     onMounted(()=>{
        Pusher.logToConsole = false;
@@ -181,6 +187,7 @@ export default defineComponent({
         body: JSON.stringify({
           name: name.value,
           massage: massage.value,
+          date: date.value
         }) 
       })
       massage.value = ''
@@ -190,24 +197,32 @@ export default defineComponent({
         const res = await axios.get('http://maximusdev.pythonanywhere.com/api/')
         tweets.value = res.data
         tweets.value.reverse()
+        const timeNow = moment(tweets.date).format('LLL');
+        momentDate.value = timeNow
              }
       catch(err){
         console.log(err);
       }
     }
+
     setInterval(()=>{
       getTweet()
     }, 100)
-
+   
     return{
        tweets,
        name,
        massage,
        addTweet,
+       date,
+       moment,
+
+       momentDate,
        openQuestionPanel,
         toggleQuestionPanel(){
           openQuestionPanel.value = !openQuestionPanel.value
-        }
+        },
+         
 
        
     }

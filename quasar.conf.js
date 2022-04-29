@@ -136,9 +136,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `TwitMax`,
-        short_name: `TwitMax`,
-        description: `A Quasar Framework app`,
+        name: `TweetMax`,
+        short_name: `TweetMax`,
+        description: `Chat for MAXIMUS GROUP`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
