@@ -81,8 +81,8 @@
        
       
       <!-- tweet lists -->
-        <q-list class="relative">
-          <q-item class="q-mt-md" v-for="tweet in tweets" :key="tweet.id">
+        <q-list class="relative full-width column wrap justify-center items-center content-center">
+          <q-item class="q-mt-md q-item " v-for="tweet in tweets" :key="tweet.id">
            <q-item-section avatar top>
               <q-avatar>
                 <q-icon name="person" size="lg" color="grey"/>
@@ -251,5 +251,7 @@ export default defineComponent({
     background-color: #fff
     height: auto
 div.q-item__label
-    max-width: 80%
+    max-width: 100%
+.q-item
+    width: 80%
 </style>
