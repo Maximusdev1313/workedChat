@@ -35,13 +35,12 @@
           v-model="massage"
           label="Savol bering"
           counter
-          maxlength="280"
+          maxlength="1400"
           class="inputForTweet q-pr-md q-pl-xl newTweet "
           autogrow
           v-if="name.length >= 3"
           lazy-rules
           :rules="[
-          val => !!val || '* Qator bo\'sh',
            val => val.length >= 5 || 'Iltimos xabar uchun 5 ko\'p harf kiriting']"
           
           >
