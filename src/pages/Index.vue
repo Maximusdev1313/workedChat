@@ -81,7 +81,7 @@
        
       
       <!-- tweet lists -->
-        <q-list class="relative item-label">
+        <q-list class="relative">
           <q-item class="q-mt-md" v-for="tweet in tweets" :key="tweet.id">
            <q-item-section avatar top>
               <q-avatar>
@@ -100,7 +100,7 @@
                   </span>
                 </span>
                 </q-item-label>
-              <q-item-label class="">
+              <q-item-label >
                 {{tweet.massage}}
               </q-item-label>                                 
               <q-separator
