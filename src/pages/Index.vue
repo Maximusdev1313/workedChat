@@ -12,7 +12,10 @@
           maxlength="280"
           class="inputForTweet q-pr-md q-pl-sm newTweet"
           autogrow
-
+          lazy-rules
+          :rules="[
+          val => !!val || '* Required',
+           val => val.length >= 3 || 'Iltimos ism uchun uchtadan ko\'p harf kiriting']"
           >
 
           <template v-slot:before>
@@ -36,6 +39,11 @@
           class="inputForTweet q-pr-md q-pl-xl newTweet "
           autogrow
           v-if="name.length >= 3"
+          lazy-rules
+          :rules="[
+          val => !!val || '* Qator bo\'sh',
+           val => val.length >= 5 || 'Iltimos xabar uchun 5 ko\'p harf kiriting']"
+          
           >
            <template v-slot:append>
             <q-icon v-if="massage !== ''" name="close" @click="massage = ''" class="cursor-pointer" />
@@ -47,14 +55,18 @@
 
              <q-btn
               @click="addTweet"
-              :disable="!addTweet"
+              :disable="name.length <= 3 && massage.length < 5"
               color="primary"
               class="q-mb-md q-mr-md"
               label="Yuborish"
               rounded
               unelevated
               no-caps
-              /> 
+              >
+               <q-tooltip class="bg-indigo" :offset="[10, 10]">
+                Xabarni yuborish
+              </q-tooltip>
+              </q-btn> 
 
         </div>
       </div>
