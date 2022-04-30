@@ -100,7 +100,7 @@
                   </span>
                 </span>
                 </q-item-label>
-              <q-item-label class="inputForTweet">
+              <q-item-label class="item-label">
                 {{tweet.massage}}
               </q-item-label>                                 
               <q-separator
@@ -248,7 +248,8 @@ export default defineComponent({
     border-color: $grey-5
     margin-top: 50px
 .inputs
-   
     background-color: #fff
     height: auto
+.item-label
+    max-width: 90%
 </style>
