@@ -84,7 +84,7 @@
                   <q-space></q-space>
                   <!-- <br class="lt-md"> -->
                   <span class="text-overline ">
-                      {{momentDate}}
+                      {{moment(tweet.date).format('LLL')}}
                   </span>
                 </span>
                 </q-item-label>
@@ -162,10 +162,7 @@ export default defineComponent({
     const name  = ref('')
     const massage = ref('')
     const tweets = ref([])
-    const date = ref(Date.now())
-    // const moment = ref('')
-    const momentDate = ref('')
-   
+    const moments = ref('')
     onMounted(()=>{
        Pusher.logToConsole = false;
 
@@ -187,7 +184,6 @@ export default defineComponent({
         body: JSON.stringify({
           name: name.value,
           massage: massage.value,
-          date: date.value
         }) 
       })
       massage.value = ''
@@ -196,9 +192,8 @@ export default defineComponent({
       try {
         const res = await axios.get('http://maximusdev.pythonanywhere.com/api/')
         tweets.value = res.data
-        tweets.value.reverse()
-        const timeNow = moment(tweets.date).format('LLL');
-        momentDate.value = timeNow
+        tweets.value.reverse()     
+        const moment = moments.value   
              }
       catch(err){
         console.log(err);
@@ -213,11 +208,8 @@ export default defineComponent({
        tweets,
        name,
        massage,
-       addTweet,
-       date,
        moment,
-
-       momentDate,
+       addTweet,
        openQuestionPanel,
         toggleQuestionPanel(){
           openQuestionPanel.value = !openQuestionPanel.value
