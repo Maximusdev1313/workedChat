@@ -41,7 +41,7 @@
           v-if="name.length >= 3"
           lazy-rules
           :rules="[
-           val => val.length >= 5 || 'Iltimos xabar uchun 5 ko\'p harf kiriting']"
+           val => val.length >= 5 || 'Iltimos xabar uchun 5 va undan ko\'p harf kiriting']"
           
           >
            <template v-slot:append>
@@ -92,12 +92,13 @@
               <q-item-label class="text-weigth-bold text-subtitle1">
                 <span class="text-grey row">
                   @{{tweet.name}}
-                  <q-space></q-space>
                   <!-- <br class="lt-md"> -->
+                  <br>
+                
+                </span>
                   <span class="text-overline ">
                       {{moment(tweet.date).format('LLL')}}
                   </span>
-                </span>
                 </q-item-label>
               <q-item-label >
                 {{tweet.massage}}
