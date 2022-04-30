@@ -81,7 +81,7 @@
        
       
       <!-- tweet lists -->
-        <q-list class="relative">
+        <q-list class="relative item-label">
           <q-item class="q-mt-md" v-for="tweet in tweets" :key="tweet.id">
            <q-item-section avatar top>
               <q-avatar>
@@ -100,7 +100,7 @@
                   </span>
                 </span>
                 </q-item-label>
-              <q-item-label class="item-label">
+              <q-item-label class="">
                 {{tweet.massage}}
               </q-item-label>                                 
               <q-separator
@@ -250,6 +250,6 @@ export default defineComponent({
 .inputs
     background-color: #fff
     height: auto
-.item-label
-    max-width: 90%
+div.q-item__label
+    max-width: 80%
 </style>
