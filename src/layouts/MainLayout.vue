@@ -14,13 +14,13 @@
         ></q-btn>
 
         <q-toolbar-title
-          class="text-weight-bold gt-sm"
+          class="text-weight-bold gt-sm "
           >
 
             {{$route.name}}
         </q-toolbar-title>
         <q-icon
-          name="fas fa-dove"
+          name="forum"
           size="sm"
           class="q-pa-md lt-md absolute-center"
           color="primary"
