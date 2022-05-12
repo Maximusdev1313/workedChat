@@ -64,18 +64,18 @@
 
         </div>
       </div>
-      <q-separator
-      size="10px"
-      color="grey-2"
-      class="devider"
-      />
+          <q-separator
+          size="10px"
+          color="grey-2"
+          class="devider"
+          />
         </div>
       </div>
-    <q-scroll-area class="absolute full-height full-width">
+
        
       
       <!-- tweet lists -->
-        <q-list class="relative full-width column wrap justify-center items-center content-center">
+        <q-list class="  column " dance>
           <q-item class="q-mt-md  " v-for="tweet in tweets" :key="tweet.id">
            <q-item-section avatar top>
               <q-avatar>
@@ -138,18 +138,12 @@
                 @click="removeTweet(tweet)"
                 ></q-btn> -->
               </div>
-
-
             </q-item-section>
           </q-item>
-
-
-
-
       </q-list>
       
     
-    </q-scroll-area>
+    
    
 
   </q-page>
@@ -246,7 +240,6 @@ export default defineComponent({
     background-color: #fff
     height: auto
 .q-item
-    width: 95%
-.q-list
-    max-width: 80%
+    max-width: 95%
+
 </style>
