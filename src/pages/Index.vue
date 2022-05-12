@@ -14,7 +14,7 @@
           autogrow
           lazy-rules
           :rules="[
-          val => !!val || '* Required',
+          val => !!val || '* Iltimos ismingizni kiriting',
            val => val.length >= 3 || 'Iltimos ism uchun uchtadan ko\'p harf kiriting']"
           >
 
@@ -41,7 +41,7 @@
           v-if="name.length >= 3"
           lazy-rules
           :rules="[
-           val => val.length >= 5 || 'Iltimos xabar uchun 5 va undan ko\'p harf kiriting']"
+           val => val.length >= 5 || val.length <=0 || 'Iltimos xabar uchun 5 va undan ko\'p harf kiriting']"
           
           >
            <template v-slot:append>
@@ -62,9 +62,7 @@
               unelevated
               no-caps
               >
-               <q-tooltip class="bg-indigo" :offset="[10, 10]">
-                Xabarni yuborish
-              </q-tooltip>
+             
               </q-btn> 
 
         </div>
