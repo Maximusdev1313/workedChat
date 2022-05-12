@@ -39,11 +39,8 @@
           class="inputForTweet q-pr-md q-pl-xl newTweet "
           autogrow
           v-if="name.length >= 3"
-          lazy-rules
-          :rules="[
-           val => val.length >= 5 || val.length <=0 || 'Iltimos xabar uchun 5 va undan ko\'p harf kiriting']"
-          
-          >
+        >
+
            <template v-slot:append>
             <q-icon v-if="massage !== ''" name="close" @click="massage = ''" class="cursor-pointer" />
 
